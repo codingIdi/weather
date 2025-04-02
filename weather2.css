@@ -1,0 +1,359 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(654deg, #007a68, #29203d);    font-family: 'roboto', sans-serif;
+    gap: 20px;
+}
+
+
+
+
+.wrapper {
+    display: flex;
+    justify-content: space-between; /* Distributes them evenly */
+    align-items:center;
+    flex-wrap:wrap;
+    gap: 20px; /* Keeps a consistent gap */
+}
+
+
+
+/*user inputed one*/
+.container {
+    width: 350px;
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    height: auto;
+    padding-bottom: 15px;
+    margin-bottom: 40px;
+    border-radius: 20px;
+}
+
+.searchBox {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.searchBox input {
+    outline: none;
+    border: none;
+    width: 250px;
+    height: 35px;
+    border-radius: 20px;
+    font-size: 15px;
+    padding-left: 10px;
+}
+
+.searchBox i {
+    background-color: white;
+    padding: 8px 8px;
+    border-radius: 50px;
+    font-size: 17px;
+}
+
+body img {
+    width: 140px;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 40px;
+}
+
+.body h2 {
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.body {
+    display: none;
+}
+
+.body h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.detail {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+.detail {
+    display: none;
+}
+
+.col {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.col i {
+    font-size: 30px;
+}
+
+.col h5 {
+    color: white;
+    font-size: 18px;
+}
+
+.col p {
+    color: white;
+    font-size: 18px;
+}
+
+input:hover{
+    transform: scale(1.02);
+}
+
+i:hover{
+    background-color: #E0E0E0;
+}
+
+
+
+/*one for london*/
+
+.container2 {
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    width: 350px;
+    height: auto;
+    padding-bottom: 8px;   
+    border-radius: 20px;
+}
+
+
+
+
+body img {
+    width: 140px;
+}
+
+.body2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    /*margin-bottom: 40px;*/
+}
+
+.body2 h2 {
+    color:  white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+
+.body2 h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.detail2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+
+.col2 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.col2 i {
+    font-size: 30px;
+}
+
+.col2 h5 {
+    color: white;
+    font-size: 18px;
+}
+
+.col2 p {
+    color: white;
+    font-size: 18px;
+}
+
+
+
+/*one for kinshasa*/
+
+.container3 {
+    background: linear-gradient(135deg, #00feba, #5b548a);
+    width: 350px;
+    height: auto;
+    padding-bottom: 8px;
+    border-radius: 20px;
+}
+
+
+
+
+
+
+body img {
+    width: 140px;
+}
+
+.body3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 30px;
+}
+
+.body3 h2 {
+    color: white;
+    font-size: 35px;
+    font-weight: bold;
+}
+
+
+
+.body3 h3 {
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.detail3 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    padding-bottom: 30px;
+}
+
+.detail3 {
+    display: none;
+}
+
+.col3 {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.col3 i {
+    font-size: 30px;
+}
+
+.col3 h5 {
+    color: white;
+    font-size: 18px;
+}
+
+.col3 p {
+    color: white;
+    font-size: 18px;
+}
+
+.bgChange:hover {
+    background-color: transparent !important; /* Removes white background on hover */
+}
+
+#solidWind,#solidDrop:hover {
+    background-color: transparent !important; /* Removes white background on hover */
+}
+
+.bi-brightness-high-fill:hover{
+    color: #FFD700;
+
+}
+.bi-moon:hover{
+    color: #B0B0B0;
+   
+
+}
+
+.bi-brightness-high-fill:hover,.bi-moon {
+    background-color: transparent !important; /* Removes white background on hover */
+}
+
+
+
+
+.bgChange .bi-moon::after{
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px;/* Position line below the icon */
+    width: 0;/* Start with no width */
+    height: 2px;
+    background-color:#B0B0B0;/* Line color */
+    border-radius: 1px; /* Optional: rounded edges */
+    transition: width 0.3s ease;
+}
+
+.bgChange .bi-moon:hover::after {
+    width: 100%;
+}
+
+.bgChange {
+    font-size: 50px;
+    cursor: pointer;
+    position: relative;
+    top: -250px;
+    left: 100%;    
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+}
+
+.bgChange .bi-brightness-high-fill::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -5px; /* Position line below the icon */
+    width: 0; /* Start with no width */
+    height: 2px; /* Line thickness */
+    background-color: #FFD700; /* Line color */
+    border-radius: 1px; /* Optional: rounded edges */
+    transition: width 0.3s ease;
+}
+
+.bgChange .bi-brightness-high-fill:hover::after {
+    width: 100%;
+}
+
+/* Media Queries - Only adjust layout after resize */
+
+/* When the screen is resized (on smaller screens) */
+@media (max-width: 1024px) {
+    .wrapper {
+        flex-wrap: wrap;  /* Allows stacking on smaller screens */
+        justify-content: center; /* Centers the content */
+    }
+
+    .container, .container2, .container3 {
+        width: 90%; /* Reduce width to fit on smaller screens */
+    }
+}
