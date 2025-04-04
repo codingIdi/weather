@@ -185,6 +185,8 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
         weatherData.image = "thunderstorm.we.png";
     } else if(weatherData.condition.toLowerCase().includes("tornado")){
         weatherData.image = "tornado.we.png";
+    }else if(weatherData.condition.toLowerCase().includes("fog")){
+        weatherData.image = "fog.we.png";
     }else {
         console.warn("No matching weather condition found");
         weatherData.image = "nofound.we.png"; // Default image
