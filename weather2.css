@@ -4,24 +4,31 @@
     box-sizing: border-box;
 }
 
+
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: linear-gradient(654deg, #007a68, #29203d);    font-family: 'roboto', sans-serif;
+    background: linear-gradient(654deg, #007a68, #29203d);    
+    font-family: 'roboto', sans-serif;
     gap: 20px;
+    width: 100vw;
+    overflow-x: hidden;
+
+
 }
 
 
 
-
 .wrapper {
+    position: relative;
     display: flex;
     justify-content: space-between; /* Distributes them evenly */
     align-items:center;
     flex-wrap:wrap;
-    gap: 20px; /* Keeps a consistent gap */
+    gap: 15px; /* Keeps a consistent gap */
 }
 
 
@@ -31,16 +38,17 @@ body {
     width: 350px;
     background: linear-gradient(135deg, #00feba, #5b548a);
     height: auto;
+    margin-bottom: 0px;
     padding-bottom: 15px;
-    margin-bottom: 40px;
     border-radius: 20px;
+
 }
 
 .searchBox {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     gap: 10px;
 }
 
@@ -56,6 +64,7 @@ body {
 
 .searchBox i {
     background-color: white;
+    color: black;
     padding: 8px 8px;
     border-radius: 50px;
     font-size: 17px;
@@ -63,6 +72,8 @@ body {
 
 body img {
     width: 140px;
+    margin-top: 10px;
+
 }
 
 .body {
@@ -70,12 +81,10 @@ body img {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px;
     margin-bottom: 40px;
 }
 
 .body h2 {
-    color: white;
     font-size: 35px;
     font-weight: bold;
 }
@@ -85,7 +94,6 @@ body img {
 }
 
 .body h3 {
-    color: white;
     font-size: 25px;
     font-weight: bold;
 }
@@ -113,12 +121,10 @@ body img {
 }
 
 .col h5 {
-    color: white;
     font-size: 18px;
 }
 
 .col p {
-    color: white;
     font-size: 18px;
 }
 
@@ -144,11 +150,6 @@ i:hover{
 
 
 
-
-body img {
-    width: 140px;
-}
-
 .body2 {
     display: flex;
     flex-direction: column;
@@ -159,15 +160,11 @@ body img {
 }
 
 .body2 h2 {
-    color:  white;
     font-size: 35px;
     font-weight: bold;
 }
 
-
-
 .body2 h3 {
-    color: white;
     font-size: 25px;
     font-weight: bold;
 }
@@ -180,7 +177,6 @@ body img {
     padding-bottom: 30px;
 }
 
-
 .col2 {
     display: flex;
     align-items: center;
@@ -192,12 +188,10 @@ body img {
 }
 
 .col2 h5 {
-    color: white;
     font-size: 18px;
 }
 
 .col2 p {
-    color: white;
     font-size: 18px;
 }
 
@@ -215,13 +209,6 @@ body img {
 
 
 
-
-
-
-body img {
-    width: 140px;
-}
-
 .body3 {
     display: flex;
     flex-direction: column;
@@ -232,15 +219,11 @@ body img {
 }
 
 .body3 h2 {
-    color: white;
     font-size: 35px;
     font-weight: bold;
 }
 
-
-
 .body3 h3 {
-    color: white;
     font-size: 25px;
     font-weight: bold;
 }
@@ -268,12 +251,14 @@ body img {
 }
 
 .col3 h5 {
-    color: white;
     font-size: 18px;
 }
 
 .col3 p {
-    color: white;
+    font-size: 18px;
+}
+
+h4{
     font-size: 18px;
 }
 
@@ -291,15 +276,15 @@ body img {
 }
 .bi-moon:hover{
     color: #B0B0B0;
-   
-
 }
+
+
+
+
 
 .bi-brightness-high-fill:hover,.bi-moon {
     background-color: transparent !important; /* Removes white background on hover */
 }
-
-
 
 
 .bgChange .bi-moon::after{
@@ -319,14 +304,19 @@ body img {
 }
 
 .bgChange {
-    font-size: 50px;
+    font-size: 2rem;
     cursor: pointer;
-    position: relative;
-    top: -250px;
-    left: 100%;    
-    transform: translate(-50%, -50%);
+    position: fixed;
+    top: 10px;
+    right: 10px;
     transition: transform 0.3s ease;
+    transform: scale(0.9);
+    z-index: 10; /* keeps it on top of all elements */
+
+
 }
+
+
 
 .bgChange .bi-brightness-high-fill::after {
     content: "";
@@ -344,16 +334,123 @@ body img {
     width: 100%;
 }
 
-/* Media Queries - Only adjust layout after resize */
 
-/* When the screen is resized (on smaller screens) */
-@media (max-width: 1024px) {
-    .wrapper {
-        flex-wrap: wrap;  /* Allows stacking on smaller screens */
-        justify-content: center; /* Centers the content */
+.popUp{
+    position: fixed;
+    top: -80px;
+    right: -10px;
+    width: 200px;
+    animation: swing 1.5s ease-in-out ; /* Apply swinging motion */
+    display: none;
+}
+
+@keyframes swing {
+    0%, 100% {
+      transform:translateX(0)
+    }
+    25% {
+      transform: translateX(-8px);
+    }
+    50%{
+        transform: translateX(8px);
+    }
+    75%{
+        transform: translateX(-4px);
     }
 
+    90%{
+        transform: translateX(-4px);
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    /* Theme Toggle (only element that changes) */
+    .bgChange {
+        position: fixed;
+        top: 4px;
+        right: 10px;
+        z-index: 1000;
+        transform: scale(0.6);
+        background: rgba(255, 255, 255, 0.2);
+        backdrop-filter: blur(5px);
+        border-radius: 50%;
+        padding: 5px;
+    }
+
+    /* Reset all other elements to original size */
     .container, .container2, .container3 {
-        width: 90%; /* Reduce width to fit on smaller screens */
+        width: 100%; /* Original: 100% */
+        transform: scale(1); /* Reset scaling */
+    }
+
+    .container h2, .container2 h2, .container3 h2 {
+        font-size: 25px; /* Original size */
+    }
+
+    .container h3, .container2 h3, .container3 h3 {
+        font-size: 20px; /* Original size */
+    }
+
+    .detail, .detail2, .detail3 {
+        justify-content: space-around;
+        padding-bottom: 4px; /* Original */
+    }
+
+    .col h5, .col2 h5, .col3 h5,
+    .col p, .col2 p, .col3 p {
+        font-size: 14px; /* Original */
+    }
+
+    .detail i, .detail2 i, .detail3 i {
+        font-size: 20px; /* Original */
+    }
+
+    .searchBox {
+        margin-right: 40px; /* Space for toggle */
+        width: calc(100% - 50px); /* Original behavior */
+    }
+
+    .searchBox input {
+        width: 150px; /* Original */
+        height: 25px; /* Original */
+    }
+
+    body img {
+        width: 70px; /* Original */
+    }
+
+    .wrapper {
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 40px; /* Prevents toggle overlap */
+        gap: normal; /* Reset if needed */
+        row-gap: 15px; 
+    }
+
+    .popUp {
+        bottom: -25px;
+        width: -10px;
+        z-index: 1000;
+        transform: scale(1); /* Reset to original */
+        /* Remove translate(-50%, -50%) if it wasn't in original */
+    }
+}
+
+/* Keep tablet/landscape adjustments minimal */
+@media (max-width: 768px) {
+    .bgChange {
+        top: 15px;
+        right: 15px;
+    }
+    .container, .container2, .container3 {
+        width: 100%; /* Match original */
+    }
+}
+
+@media (max-width: 1024px) and (orientation: landscape) {
+    .bgChange {
+        top: 5px;
+        right: 5px;
+        transform: scale(0.7);
     }
 }

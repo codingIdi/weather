@@ -10,6 +10,8 @@ const searchInput = document.getElementById("searchInput");
 const body_image = document.getElementById("body_image");
 const body_detail = document.getElementById("body_detail");
 const detail = document.getElementById("detail");
+const weathertype1 = document.getElementById("weatherType1");
+
 
 // London-specific DOM elements
 const cityName2 = document.getElementById("City2");
@@ -19,6 +21,8 @@ const speed2 = document.getElementById("speed2");
 const body_image2 = document.getElementById("body_image2");
 const body_detail2 = document.getElementById("body_detail2");
 const detail2 = document.getElementById("detail2");
+const weathertype2 = document.getElementById("weatherType2");
+
 
 // Kinshasa-specific DOM elements
 const cityName3 = document.getElementById("City3");
@@ -28,10 +32,16 @@ const speed3 = document.getElementById("speed3");
 const body_image3 = document.getElementById("body_image3");
 const body_detail3 = document.getElementById("body_detail3");
 const detail3 = document.getElementById("detail3");
+const weathertype3 = document.getElementById("weatherType3");
 
 //BgChange
 const toggle = document.getElementById("toggleDark");
 const bgChange = document.querySelector(".bgChange");
+
+//popup
+const Pop = document.querySelector(".popUp");
+
+//weathertype
 
 
 // Check and apply saved theme on page load
@@ -39,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const savedTheme = localStorage.getItem("theme");
     if(savedTheme == "light"){
         applylightTheme();
+
     }else{
         applydarkTheme();
     }
@@ -60,17 +71,28 @@ toggle.addEventListener("click", function(){
 
 
 function applylightTheme(){
-    document.body.style.background =  "linear-gradient(654deg, #006f5a, #2a2a3f)";
-    //document.body.style.background = "linear-gradient(135deg, #00feba, #5b548a)";
-    document.body.style.color ="black";
+    document.body.style.background = "linear-gradient(160deg, #fff5e6, #ffd8b8, #c1d8f0)";
+    document.body.style.color ="#333333";
     toggle.classList.remove("bi-moon");
     toggle.classList.add("bi-brightness-high-fill");
     document.body.style.transition = "2s";
-    bgChange.style.color = "#CC8E00";
-    bgChange.style.transition = "2s";
+    bgChange.style.color = "#B38B6D"; // Earthy tan (softer than orange)
+    bgChange.style.transition = " 0.5s ease";
     document.querySelectorAll(".container, .container2, .container3").forEach(container => {
-        container.style.background ="linear-gradient(135deg, #006f5a, #2a2a3f)";
+        container.style.background = "rgba(255, 255, 255, 0.7)";
+    container.style.backdropFilter = "blur(8px)";
+    container.style.border = "1px solid rgba(255, 255, 255, 0.3)";
+
     });
+
+    setTimeout(()=>{
+        Pop.style.display = "none";
+
+    },2000);
+    Pop.src = "speech-bubble2.we.PNG";
+    Pop.style.display = "block";
+
+
 
     
 
@@ -78,18 +100,35 @@ function applylightTheme(){
 
 function applydarkTheme(){
         //document.body.style.background =  "linear-gradient(654deg, #006f5a, #2a2a3f)";
-        document.body.style.background = "linear-gradient(135deg, #00feba, #5b548a)";
-        document.body.style.color = "#686868";
+        document.body.style.background = "linear-gradient(160deg, #0f2027, #203a43, #2c5364)";
+        document.body.style.color = "#a8a8a8";
         toggle.classList.remove("bi-brightness-high-fill");
         toggle.classList.add("bi-moon");
         document.body.style.transition = "2s";
-        bgChange.style.color ="#505050";
-        bgChange.style.transition = "2s";
-        document.querySelectorAll(".container, .container2, .container3").forEach(container => {
-            container.style.background ="linear-gradient(135deg, #00feba, #5b548a)";
-        });
+        bgChange.style.color = "#7a7a7a";
+        bgChange.style.transition = " background 0.5s ease, color 0.5s ease";
+        
 
+        //bgChange.style.transition = "2s";
+        document.querySelectorAll(".container, .container2, .container3").forEach(container => {
+            container.style.background = "rgba(15, 32, 39, 0.7)"; // Semi-transparent dark teal
+            container.style.backdropFilter = "blur(8px)";
+            container.style.border = "1px solid rgba(255, 255, 255, 0.1)"; // Subtle border
+    });
+
+
+        
+        
+        setTimeout(()=>{
+        Pop.style.display = "none";
+        },2000);
+        Pop.src = "speech-bubble.we.png";
+        Pop.style.display = "block";
+
+
+        return;
 }
+
 
 // API Key
 let Upi_key = '7cab309e891748b2b7e121210252103';
@@ -123,6 +162,7 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
             // Show "Not Found" temporarily
             body_image.src = "nofound.we.png";
             cityName.innerHTML = "City not found";
+            weathertype1.innerHTML = "";
             humidity.innerHTML = "--°F"
             speed.innerHTML = "-- mph"
 
@@ -134,14 +174,17 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
                     humidity.innerHTML = "?";
                     speed.innerHTML = "?";
                     body_image.src = "";
+                    weathertype1.innerHTML = "";
                 } else {
                     cityName.innerHTML = "Enter City";
                     temp.innerHTML = "--°F";
                     humidity.innerHTML = "--%";
                     speed.innerHTML = "-- mph";
                     body_image.src = "";
+
+
                 }
-            }, 3000);
+            }, 2000);
             return;
         }
 
@@ -157,6 +200,7 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
         };
 
         console.log("Weather condition:", weatherData.condition);
+        
 
                 // Determine the appropriate image based on weather condition
         if (weatherData.condition.toLowerCase().includes("clear")){
@@ -171,8 +215,6 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
         weatherData.image = "clouds.we.png";
     } else if (weatherData.condition.toLowerCase().includes("overcast")) { // Ensure case-insensitive match
         weatherData.image = "overcast.we.png";
-    } else if (weatherData.condition.toLowerCase().includes("rain")) {
-        weatherData.image = "heavy-rain.png";
     } else if (weatherData.condition.toLowerCase().includes("drizzle") || weatherData.condition.toLowerCase().includes("light drizzle")) {
         weatherData.image = "drizzle.we.png";
     } else if (weatherData.condition.toLowerCase().includes("mist")) {
@@ -187,9 +229,18 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
         weatherData.image = "tornado.we.png";
     }else if(weatherData.condition.toLowerCase().includes("fog")){
         weatherData.image = "fog.we.png";
-    }else {
+    }else if(weatherData.condition.toLowerCase().includes("patchy light rain with thunder")){
+        weatherData.image = "patchy-rain-thun.png";
+    }else if(weatherData.condition.toLowerCase().includes("moderate rain")){
+        weatherData.image = "moderate.rain.png";
+    }else if (weatherData.condition.toLowerCase().includes("rain")) {
+        weatherData.image = "heavy-rain.png";
+    }else if(weatherData.condition.toLowerCase().includes("light rain")){
+        weatherData.image = "rainy-day.png";
+    }else{
         console.warn("No matching weather condition found");
         weatherData.image = "nofound.we.png"; // Default image
+
     }
   
     
@@ -200,6 +251,7 @@ if (cityNumber2 === 1) {
     humidity.innerHTML = weatherData.humidity;
     speed.innerHTML = weatherData.speed;
     body_image.src = weatherData.image;
+    weathertype1.innerHTML = weatherData.condition;
     body_detail.style.display = "flex"; // Show the section for inputed city
     detail.style.display = "flex"; // Show the details f
     
@@ -209,6 +261,7 @@ if (cityNumber2 === 1) {
     humidity2.innerHTML = weatherData.humidity;
     speed2.innerHTML = weatherData.speed;
     body_image2.src = weatherData.image; 
+    weathertype2.innerHTML = weatherData.condition;
     body_detail2.style.display = "flex"; // Show the section for London
     detail2.style.display = "flex"; // Show the details for London
 
@@ -218,6 +271,7 @@ if (cityNumber2 === 1) {
     humidity3.innerHTML = weatherData.humidity;
     speed3.innerHTML = weatherData.speed;
     body_image3.src = weatherData.image; 
+    weathertype3.innerHTML = weatherData.condition;
     body_detail3.style.display = "flex"; // Show the section for London
     detail3.style.display = "flex"; // Show the details for London
 }  
@@ -226,11 +280,11 @@ if (cityNumber2 === 1) {
         
 
         // Update UI with valid data
-        cityName.innerHTML = weatherData.name;
-        temp.innerHTML = weatherData.temp;
-        humidity.innerHTML = weatherData.humidity;
-        speed.innerHTML = weatherData.speed;
-        body_image.src = weatherData.image;
+       // cityName.innerHTML = weatherData.name;
+        //temp.innerHTML = weatherData.temp;
+        //humidity.innerHTML = weatherData.humidity;
+        //speed.innerHTML = weatherData.speed;
+        //body_image.src = weatherData.image;
 
         // Save valid weather data to local storage
         saveWeatherData(weatherData);
@@ -243,6 +297,7 @@ if (cityNumber2 === 1) {
 }
 
 // Call the function for London and Kinshasa with the corresponding city numbers
+
 checkWeath("London", 2, 0);
 checkWeath("Kinshasa", 0, 3);
 
@@ -274,14 +329,10 @@ searchIcon.addEventListener('click', () => {
         body_detail.style.display = "flex";
 
             // Clear the input after search
-        setTimeout(() => {
-            
-        }, 2000);
-        searchInput.value = ""; // Clear the search input
-
-
+       
     }
-    
+    checkWeath(searchInput.value, 1, 0);
+
 });
 
 
