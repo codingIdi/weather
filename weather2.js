@@ -233,10 +233,10 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
         weatherData.image = "patchy-rain-thun.png";
     }else if(weatherData.condition.toLowerCase().includes("moderate rain")){
         weatherData.image = "moderate.rain.png";
-    }else if (weatherData.condition.toLowerCase().includes("rain")) {
-        weatherData.image = "heavy-rain.png";
     }else if(weatherData.condition.toLowerCase().includes("light rain")){
         weatherData.image = "rainy-day.png";
+    }else if (weatherData.condition.toLowerCase().includes("rain")) {
+        weatherData.image = "heavy-rain.png";
     }else{
         console.warn("No matching weather condition found");
         weatherData.image = "nofound.we.png"; // Default image
