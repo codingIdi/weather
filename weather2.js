@@ -41,7 +41,6 @@ const bgChange = document.querySelector(".bgChange");
 //popup
 const Pop = document.querySelector(".popUp");
 
-//weathertype
 
 
 // Check and apply saved theme on page load
@@ -196,52 +195,52 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
             humidity: data.current.humidity + "%",
             speed: data.current.wind_mph + " mph",
             condition: data.current.condition.text.toLowerCase(),
-            image: "sun.we.png"
+            image: "nofound.we.png"
         };
 
         console.log("Weather condition:", weatherData.condition);
         
 
                 // Determine the appropriate image based on weather condition
-        if (weatherData.condition.toLowerCase().includes("clear")){
-            weatherData.image = "clear-day.we.png"
-    } else if (weatherData.condition.toLowerCase().includes("sunny")){
-            weatherData.image = "sun.we.png"
-    }else if(weatherData.condition.toLowerCase().includes("mostly sunny")) {
-        weatherData.image = "mostly-sun.png";   
-    } else if (weatherData.condition.toLowerCase().includes("partly cloudy")) {
-        weatherData.image = "partly-cloudy.we.png";
-    } else if (weatherData.condition.toLowerCase().includes("cloud")) {
-        weatherData.image = "clouds.we.png";
-    } else if (weatherData.condition.toLowerCase().includes("overcast")) { // Ensure case-insensitive match
-        weatherData.image = "overcast.we.png";
-    } else if (weatherData.condition.toLowerCase().includes("drizzle") || weatherData.condition.toLowerCase().includes("light drizzle")) {
-        weatherData.image = "drizzle.we.png";
-    } else if (weatherData.condition.toLowerCase().includes("mist")) {
-        weatherData.image = "mist.we.png";
-    } else if (weatherData.condition.toLowerCase().includes("haze")) {
-        weatherData.image = "haze.we.png";
-    } else if(weatherData.condition.toLowerCase().includes("snow")){
-        weatherData.image = "snow.we.png";
-    }else if(weatherData.condition.toLowerCase().includes("thunderstorm")){
-        weatherData.image = "thunderstorm.we.png";
-    } else if(weatherData.condition.toLowerCase().includes("tornado")){
-        weatherData.image = "tornado.we.png";
-    }else if(weatherData.condition.toLowerCase().includes("fog")){
-        weatherData.image = "fog.we.png";
-    }else if(weatherData.condition.toLowerCase().includes("patchy light rain with thunder")){
-        weatherData.image = "patchy-rain-thun.png";
-    }else if(weatherData.condition.toLowerCase().includes("moderate rain")){
-        weatherData.image = "moderate.rain.png";
-    }else if(weatherData.condition.toLowerCase().includes("light rain")){
-        weatherData.image = "rainy-day.png";
-    }else if (weatherData.condition.toLowerCase().includes("rain")) {
-        weatherData.image = "heavy-rain.png";
-    }else{
-        console.warn("No matching weather condition found");
-        weatherData.image = "nofound.we.png"; // Default image
-
-    }
+                if (weatherData.condition.toLowerCase().includes("clear")){
+                    weatherData.image = "clear-day.we.png"
+            } else if (weatherData.condition.toLowerCase().includes("sunny")){
+                    weatherData.image = "sun.we.png"
+            }else if(weatherData.condition.toLowerCase().includes("mostly sunny")) {
+                weatherData.image = "mostly-sun.png";   
+            } else if (weatherData.condition.toLowerCase().includes("partly cloudy")) {
+                weatherData.image = "partly-cloudy.we.png";        
+            } else if (weatherData.condition.toLowerCase().includes("cloud")) {
+                weatherData.image = "clouds.we.png";
+            } else if (weatherData.condition.toLowerCase().includes("overcast")) { // Ensure case-insensitive match
+                weatherData.image = "overcast.we.png";        
+            } else if (weatherData.condition.toLowerCase().includes("drizzle") || weatherData.condition.toLowerCase().includes("light drizzle")) {
+                weatherData.image = "drizzle.we.png";
+            } else if (weatherData.condition.toLowerCase().includes("mist")) {
+                weatherData.image = "mist.we.png";
+            } else if (weatherData.condition.toLowerCase().includes("haze")) {
+                weatherData.image = "haze.we.png";
+            } else if(weatherData.condition.toLowerCase().includes("snow")){
+                weatherData.image = "snow.we.png";
+            }else if(weatherData.condition.toLowerCase().includes("thunderstorm")){
+                weatherData.image = "thunderstorm.we.png";
+            } else if(weatherData.condition.toLowerCase().includes("tornado")){
+                weatherData.image = "tornado.we.png";
+            }else if(weatherData.condition.toLowerCase().includes("fog")){
+                weatherData.image = "fog.we.png";
+            }else if(weatherData.condition.toLowerCase().includes("patchy light rain with thunder")){
+                weatherData.image = "patchy-rain-thun.png";
+            }else if(weatherData.condition.toLowerCase().includes("moderate or heavy rain with thunder")){
+                weatherData.image = "moderate.rain.png";
+            }else if(weatherData.condition.toLowerCase().includes("light rain")){
+                weatherData.image = "light-rain.png";
+            }else if (weatherData.condition.toLowerCase().includes("rain")) {
+                weatherData.image = "rainy-day.png";
+        
+            } else {
+                console.warn("No matching weather condition found");
+                weatherData.image = "nofound.we.png"; // Default image
+            }
   
     
              // Update specific sections based on city number

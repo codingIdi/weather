@@ -344,6 +344,10 @@ h4{
     display: none;
 }
 
+#Clothes{
+    font-size: 15px;
+}
+
 @keyframes swing {
     0%, 100% {
       transform:translateX(0)
@@ -362,6 +366,8 @@ h4{
         transform: translateX(-4px);
     }
   }
+
+
 
   @media only screen and (max-width: 600px) {
     /* Theme Toggle (only element that changes) */
