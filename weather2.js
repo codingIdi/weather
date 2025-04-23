@@ -41,6 +41,10 @@ const bgChange = document.querySelector(".bgChange");
 //popup
 const Pop = document.querySelector(".popUp");
 
+//feels like
+const Feels1 = document.getElementById("Feel1");
+const Feels2 = document.getElementById("Feel2");
+const Feels3 = document.getElementById("Feel3");
 
 
 // Check and apply saved theme on page load
@@ -164,6 +168,8 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
             weathertype1.innerHTML = "";
             humidity.innerHTML = "--°F"
             speed.innerHTML = "-- mph"
+            Feels1.innerHTML = "";
+
 
             // Reset to last valid data or default values after 2 seconds
             setTimeout(() => {
@@ -180,6 +186,8 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
                     humidity.innerHTML = "--%";
                     speed.innerHTML = "-- mph";
                     body_image.src = "";
+                    Feels1.innerHTML = "";
+
 
 
                 }
@@ -194,6 +202,7 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
             temp: Math.floor(data.current.temp_f) + "°F",
             humidity: data.current.humidity + "%",
             speed: data.current.wind_mph + " mph",
+            Feels:"feels like "+ Math.floor(data.current.feelslike_f) + "°F",
             condition: data.current.condition.text.toLowerCase(),
             image: "nofound.we.png"
         };
@@ -205,7 +214,7 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
                 if (weatherData.condition.toLowerCase().includes("clear")){
                     weatherData.image = "clear-day.we.png"
             } else if (weatherData.condition.toLowerCase().includes("sunny")){
-                    weatherData.image = "sun.we.png"
+                    weatherData.image = "sun.we.png";
             }else if(weatherData.condition.toLowerCase().includes("mostly sunny")) {
                 weatherData.image = "mostly-sun.png";   
             } else if (weatherData.condition.toLowerCase().includes("partly cloudy")) {
@@ -230,7 +239,7 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
                 weatherData.image = "fog.we.png";
             }else if(weatherData.condition.toLowerCase().includes("patchy light rain with thunder")){
                 weatherData.image = "patchy-rain-thun.png";
-            }else if(weatherData.condition.toLowerCase().includes("moderate or heavy rain with thunder")){
+            }else if(weatherData.condition.toLowerCase().includes("moderate or heavy rain with thunder" )){
                 weatherData.image = "moderate.rain.png";
             }else if(weatherData.condition.toLowerCase().includes("light rain")){
                 weatherData.image = "light-rain.png";
@@ -251,6 +260,7 @@ if (cityNumber2 === 1) {
     speed.innerHTML = weatherData.speed;
     body_image.src = weatherData.image;
     weathertype1.innerHTML = weatherData.condition;
+    Feels1.innerHTML = weatherData.Feels;
     body_detail.style.display = "flex"; // Show the section for inputed city
     detail.style.display = "flex"; // Show the details f
     
@@ -261,6 +271,7 @@ if (cityNumber2 === 1) {
     speed2.innerHTML = weatherData.speed;
     body_image2.src = weatherData.image; 
     weathertype2.innerHTML = weatherData.condition;
+    Feels2.innerHTML = weatherData.Feels;
     body_detail2.style.display = "flex"; // Show the section for London
     detail2.style.display = "flex"; // Show the details for London
 
@@ -271,8 +282,9 @@ if (cityNumber2 === 1) {
     speed3.innerHTML = weatherData.speed;
     body_image3.src = weatherData.image; 
     weathertype3.innerHTML = weatherData.condition;
-    body_detail3.style.display = "flex"; // Show the section for London
-    detail3.style.display = "flex"; // Show the details for London
+    Feels3.innerHTML = weatherData.Feels;
+    body_detail3.style.display = "flex"; // Show the section for Kinshasa
+    detail3.style.display = "flex"; // Show the details for Kinshasa
 }  
     
 
