@@ -12,7 +12,7 @@ body {
     align-items: center;
     min-height: 100vh;
     background: linear-gradient(654deg, #007a68, #29203d);    
-    font-family: 'roboto', sans-serif;
+    font-family: 'Courier New', monospace;
     gap: 20px;
     width: 100vw;
     overflow-x: hidden;
@@ -57,7 +57,7 @@ body {
     border: none;
     width: 250px;
     height: 35px;
-    border-radius: 20px;
+    border-radius: 10px;
     font-size: 15px;
     padding-left: 10px;
 }
@@ -66,7 +66,7 @@ body {
     background-color: white;
     color: black;
     padding: 8px 8px;
-    border-radius: 50px;
+    border-radius: 10px;
     font-size: 17px;
 }
 
@@ -133,7 +133,7 @@ input:hover{
 }
 
 i:hover{
-    background-color: #E0E0E0;
+    background-color: #D0D0D0;
 }
 
 

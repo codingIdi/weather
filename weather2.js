@@ -1,3 +1,4 @@
+
 const wrapper = document.querySelector(".wrapper");
 
 // Get DOM elements for displaying weather information
@@ -174,7 +175,7 @@ async function checkWeath(city, cityNumber2, cityNumber3) {
             // Reset to last valid data or default values after 2 seconds
             setTimeout(() => {
                 if (lastData) {
-                    cityName.innerHTML = "Please enter a valid name!";
+                    cityName.innerHTML = " Please enter a valid name!";
                     temp.innerHTML = "?";
                     humidity.innerHTML = "?";
                     speed.innerHTML = "?";
@@ -345,8 +346,3 @@ searchIcon.addEventListener('click', () => {
     checkWeath(searchInput.value, 1, 0);
 
 });
-
-
-
-
-
